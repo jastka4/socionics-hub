@@ -3,6 +3,7 @@ import type { CollectionConfig } from 'payload'
 import { authenticated } from '../access/authenticated'
 import { authenticatedOrPublished } from '../access/authenticatedOrPublished'
 import { typesSelectField } from '../fields/types'
+import { slugField } from '../fields/slug'
 
 export const Profiles: CollectionConfig = {
   slug: 'profiles',
@@ -133,5 +134,6 @@ export const Profiles: CollectionConfig = {
         mimeType: { contains: 'image' },
       },
     },
+    slugField('name', { admin: { readOnly: true, } }),
   ],
 }
