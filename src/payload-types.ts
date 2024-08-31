@@ -16,6 +16,8 @@ export interface Config {
     media: Media;
     categories: Category;
     users: User;
+    'profile-categories': ProfileCategory;
+    profiles: Profile;
     redirects: Redirect;
     forms: Form;
     'form-submissions': FormSubmission;
@@ -193,14 +195,21 @@ export interface Page {
           [k: string]: unknown;
         } | null;
         populateBy?: ('collection' | 'selection') | null;
-        relationTo?: 'posts' | null;
+        relationTo?: ('posts' | 'profiles') | null;
         categories?: (string | Category)[] | null;
+        profiles?: (string | ProfileCategory)[] | null;
         limit?: number | null;
         selectedDocs?:
-          | {
-              relationTo: 'posts';
-              value: string | Post;
-            }[]
+          | (
+              | {
+                  relationTo: 'posts';
+                  value: string | Post;
+                }
+              | {
+                  relationTo: 'profiles';
+                  value: string | Profile;
+                }
+            )[]
           | null;
         id?: string | null;
         blockName?: string | null;
@@ -295,6 +304,25 @@ export interface Category {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "profile-categories".
+ */
+export interface ProfileCategory {
+  id: string;
+  title: string;
+  parent?: (string | null) | ProfileCategory;
+  breadcrumbs?:
+    | {
+        doc?: (string | null) | ProfileCategory;
+        url?: string | null;
+        label?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "posts".
  */
 export interface Post {
@@ -352,6 +380,85 @@ export interface User {
   loginAttempts?: number | null;
   lockUntil?: string | null;
   password?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "profiles".
+ */
+export interface Profile {
+  id: string;
+  name: string;
+  category: string | ProfileCategory;
+  SHS?: {
+    type?:
+      | (
+          | 'ILE'
+          | 'LIE'
+          | 'IEE'
+          | 'EIE'
+          | 'SLE'
+          | 'LSE'
+          | 'SEE'
+          | 'ESE'
+          | 'ILI'
+          | 'LII'
+          | 'IEI'
+          | 'EII'
+          | 'SLI'
+          | 'LSI'
+          | 'SEI'
+          | 'ESI'
+        )
+      | null;
+    subtype?: ('D' | 'C' | 'N' | 'H')[] | null;
+    accentuation?: ('F' | 'S' | 'P' | 'L' | 'E' | 'R' | 'I' | 'T')[] | null;
+    shift?:
+      | (
+          | 'ILE'
+          | 'LIE'
+          | 'IEE'
+          | 'EIE'
+          | 'SLE'
+          | 'LSE'
+          | 'SEE'
+          | 'ESE'
+          | 'ILI'
+          | 'LII'
+          | 'IEI'
+          | 'EII'
+          | 'SLI'
+          | 'LSI'
+          | 'SEI'
+          | 'ESI'
+        )
+      | null;
+  };
+  SCS?: {
+    type?:
+      | (
+          | 'ILE'
+          | 'LIE'
+          | 'IEE'
+          | 'EIE'
+          | 'SLE'
+          | 'LSE'
+          | 'SEE'
+          | 'ESE'
+          | 'ILI'
+          | 'LII'
+          | 'IEI'
+          | 'EII'
+          | 'SLI'
+          | 'LSI'
+          | 'SEI'
+          | 'ESI'
+        )
+      | null;
+  };
+  profilePicture?: (string | null) | Media;
+  slug?: string | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -534,6 +641,10 @@ export interface Redirect {
       | ({
           relationTo: 'posts';
           value: string | Post;
+        } | null)
+      | ({
+          relationTo: 'profiles';
+          value: string | Profile;
         } | null);
     url?: string | null;
   };
