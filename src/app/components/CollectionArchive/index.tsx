@@ -1,16 +1,18 @@
 import { cn } from '@/utilities/cn'
 import React from 'react'
 
-import type { Post } from '../../../payload-types'
+import type { Post, Profile } from '../../../payload-types'
 
-import { Card } from '../Card'
+import { CardPost } from '../Card/Post'
+import { CardProfile } from '../Card/Profile'
 
 export type Props = {
-  posts: Post[]
+  posts?: Post[],
+  profiles?: Profile[]
 }
 
 export const CollectionArchive: React.FC<Props> = (props) => {
-  const { posts } = props
+  const { posts, profiles } = props
 
   return (
     <div className={cn('container')}>
@@ -20,7 +22,18 @@ export const CollectionArchive: React.FC<Props> = (props) => {
             if (typeof result === 'object' && result !== null) {
               return (
                 <div className="col-span-4" key={index}>
-                  <Card className="h-full" doc={result} relationTo="posts" showCategories />
+                  <CardPost className="h-full" doc={result} relationTo="posts" showCategories />
+                </div>
+              )
+            }
+
+            return null
+          })}
+          {profiles?.map((result, index) => {
+            if (typeof result === 'object' && result !== null) {
+              return (
+                <div className="col-span-2" key={index}>
+                  <CardProfile className="h-full" doc={result} relationTo="profiles" />
                 </div>
               )
             }

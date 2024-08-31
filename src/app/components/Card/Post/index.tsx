@@ -4,11 +4,11 @@ import useClickableCard from '@/utilities/useClickableCard'
 import Link from 'next/link'
 import React, { Fragment } from 'react'
 
-import type { Post } from '../../../payload-types'
+import type { Post } from '../../../../payload-types'
 
-import { Media } from '../Media'
+import { Media } from '../../Media'
 
-export const Card: React.FC<{
+export const CardPost: React.FC<{
   alignItems?: 'center'
   className?: string
   doc?: Post

@@ -89,6 +89,11 @@ export default {
         success: 'hsl(var(--success))',
         error: 'hsl(var(--error))',
         warning: 'hsl(var(--warning))',
+        category: {
+          DEFAULT: 'hsl(var(--category))',
+          shs: 'hsl(var(--shs))',
+          scs: 'hsl(var(--scs))',
+      }
       },
       fontFamily: {
         mono: ['var(--font-geist-mono)'],
