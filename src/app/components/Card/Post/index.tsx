@@ -1,12 +1,12 @@
 'use client'
-import { cn } from '@/utilities/cn'
-import useClickableCard from '@/utilities/useClickableCard'
 import Link from 'next/link'
 import React, { Fragment } from 'react'
 
-import type { Post } from '../../../../payload-types'
+import type { Post } from 'src/payload-types'
 
-import { Media } from '../../Media'
+import { Media } from '@/components/Media'
+import { cn } from '@/utilities/cn'
+import useClickableCard from '@/utilities/useClickableCard'
 
 export const CardPost: React.FC<{
   alignItems?: 'center'

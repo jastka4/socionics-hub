@@ -1,12 +1,12 @@
 'use client'
-import { cn } from '@/utilities/cn'
-import useClickableCard from '@/utilities/useClickableCard'
 import Link from 'next/link'
 import React, { Fragment } from 'react'
 
-import type { Profile } from '../../../../payload-types'
+import type { Profile } from 'src/payload-types'
 
-import { Media } from '../../Media'
+import { Media } from '@/components/Media'
+import { cn } from '@/utilities/cn'
+import useClickableCard from '@/utilities/useClickableCard'
 
 export const CardProfile: React.FC<{
   alignItems?: 'center'
