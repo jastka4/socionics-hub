@@ -6,6 +6,7 @@ import { formBuilderPlugin } from '@payloadcms/plugin-form-builder'
 import { nestedDocsPlugin } from '@payloadcms/plugin-nested-docs'
 import { redirectsPlugin } from '@payloadcms/plugin-redirects'
 import { seoPlugin } from '@payloadcms/plugin-seo'
+import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 import {
   BoldFeature,
   FixedToolbarFeature,
@@ -189,6 +190,13 @@ export default buildConfig({
       },
     }),
     payloadCloudPlugin(), // storage-adapter-placeholder
+    vercelBlobStorage({
+      enabled: process.env.BLOB_ENABLED === 'true',
+      collections: {
+        [Media.slug]: true,
+      },
+      token: process.env.BLOB_READ_WRITE_TOKEN || ''
+    }),
   ],
   secret: process.env.PAYLOAD_SECRET!,
   sharp,
