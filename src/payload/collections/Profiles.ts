@@ -30,6 +30,14 @@ export const Profiles: CollectionConfig = {
       required: true,
     },
     {
+      name: 'profilePicture',
+      type: 'upload',
+      relationTo: 'media',
+      filterOptions: {
+        mimeType: { contains: 'image' },
+      },
+    },
+    {
       type: 'tabs',
       tabs: [
         {
@@ -109,8 +117,8 @@ export const Profiles: CollectionConfig = {
               overrides: {
                 name: 'shift',
                 label: 'activity orientation shift',
-                validate: (val, { siblingData }) => {
-                  if (val === siblingData.type) {
+                validate: (val: any, { siblingData }) => {
+                  if (val && val === siblingData.type) {
                     return 'Type and accentuation cannot be the same'
                   }
                   return true
@@ -124,16 +132,8 @@ export const Profiles: CollectionConfig = {
           description: 'Configure SCS type.',
           fields: [typesSelectField()],
         },
-      ]
+      ],
     },
-    {
-      name: 'profilePicture',
-      type: 'upload',
-      relationTo: 'media',
-      filterOptions: {
-        mimeType: { contains: 'image' },
-      },
-    },
-    slugField('name', { admin: { readOnly: true, } }),
+    slugField('name', { admin: { readOnly: true } }),
   ],
 }

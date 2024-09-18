@@ -389,6 +389,7 @@ export interface Profile {
   id: string;
   name: string;
   category: string | ProfileCategory;
+  profilePicture?: (string | null) | Media;
   SHS?: {
     type?:
       | (
@@ -455,7 +456,6 @@ export interface Profile {
         )
       | null;
   };
-  profilePicture?: (string | null) | Media;
   slug?: string | null;
   updatedAt: string;
   createdAt: string;
