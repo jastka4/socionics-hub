@@ -1,5 +1,9 @@
 import type { CollectionSlug, GlobalSlug, Payload, PayloadRequest, File } from 'payload'
 
+import fs from 'fs'
+import path from 'path'
+import { fileURLToPath } from 'url'
+
 import { contactForm as contactFormData } from './contact-form'
 import { contact as contactPageData } from './contact-page'
 import { home } from './home'
@@ -9,6 +13,10 @@ import { imageHero1 } from './image-hero-1'
 import { post1 } from './post-1'
 import { post2 } from './post-2'
 import { post3 } from './post-3'
+import { profiles } from './profiles'
+
+const filename = fileURLToPath(import.meta.url)
+const dirname = path.dirname(filename)
 
 const collections: CollectionSlug[] = [
   'categories',
@@ -18,6 +26,8 @@ const collections: CollectionSlug[] = [
   'forms',
   'form-submissions',
   'search',
+  'profile-categories',
+  'profiles',
 ]
 
 const globals: GlobalSlug[] = ['header', 'footer']
@@ -214,6 +224,74 @@ export const seed = async ({
       data: contactPageData({ contactForm: contactForm }),
     }),
   ])
+
+  payload.logger.info(`— Seeding profile images...`)
+
+  const profileImageFiles = fs
+    .readdirSync(path.resolve(dirname, 'images'), { withFileTypes: true })
+    .filter((file) => file.isFile())
+
+  const profileImageEntries = await Promise.all(
+    profileImageFiles.map(async (file) => {
+      const slug = file.name.replace(/\.[^.]+$/, '')
+      const profileImage = await payload.create({
+        collection: 'media',
+        data: {
+          alt: slug
+            .split('-')
+            .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(' '),
+        },
+        filePath: path.resolve(dirname, 'images', file.name),
+        req,
+      })
+
+      return [slug, profileImage.id] as const
+    }),
+  )
+  const profileImages = new Map(profileImageEntries)
+
+  payload.logger.info(`— Seeding profile categories...`)
+
+  const [realProfileCategory, fictionalProfileCategory] = await Promise.all([
+    payload.create({
+      collection: 'profile-categories',
+      data: {
+        title: 'Real person',
+      },
+      req,
+    }),
+    payload.create({
+      collection: 'profile-categories',
+      data: {
+        title: 'Fictional character',
+      },
+      req,
+    }),
+  ])
+
+  payload.logger.info(`— Seeding profiles...`)
+
+  await Promise.all(
+    profiles.map(({ category, profilePicture: _profilePicture, ...profile }) => {
+      const profilePicture = profileImages.get(profile.slug ?? '')
+
+      if (!profilePicture) {
+        throw new Error(`Missing seed image for profile "${profile.slug}"`)
+      }
+
+      return payload.create({
+        collection: 'profiles',
+        data: {
+          ...profile,
+          category:
+            category === '{{CATEGORY_REAL}}' ? realProfileCategory.id : fictionalProfileCategory.id,
+          profilePicture,
+        },
+        req,
+      })
+    }),
+  )
 
   payload.logger.info(`— Seeding globals...`)
 
