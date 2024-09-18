@@ -12,6 +12,7 @@ import { image2 } from './image-2'
 import { post1 } from './post-1'
 import { post2 } from './post-2'
 import { post3 } from './post-3'
+import { profiles } from './profiles'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -23,6 +24,8 @@ const collections: CollectionSlug[] = [
   'posts',
   'forms',
   'form-submissions',
+  'profile-categories',
+  'profiles',
 ]
 const globals: GlobalSlug[] = ['header', 'footer']
 
@@ -356,6 +359,71 @@ export const seed = async ({
       ],
     },
     req,
+  })
+
+  payload.logger.info(`— Seeding profile images...`)
+
+  const files = fs.readdirSync(dirname + '/images', { withFileTypes: true })
+  const profileImages = new Map<string, string>()
+  
+  await Promise.all(files.map(async (file) => {
+    let slug = file.name.replace(/\..*$/, '')
+    const profileImage = await payload.create({
+      collection: 'media',
+      data: {
+        alt: `${slug.replace(/^.|-./g, (x) => x.toUpperCase()).replace(/-/, ' ')}`,
+      },
+      filePath: path.resolve(dirname, 'images', file.name),
+      req,
+    })
+
+    let profileImageID: number | string = profileImage.id
+    if (payload.db.defaultIDType === 'text') {
+      profileImageID = `"${profileImage.id}"`
+    }
+
+    profileImages.set(slug, profileImageID)
+  }))
+
+  payload.logger.info(`— Seeding profile categories...`)
+
+  const realProfileCategory = await payload.create({
+    collection: 'profile-categories',
+    data: {
+      title: 'Real person',
+    },
+    req,
+  })
+
+  const fictionalProfileCategory = await payload.create({
+    collection: 'profile-categories',
+    data: {
+      title: 'Fictional character',
+    },
+    req,
+  })
+
+  let realProfileCategoryID: number | string = realProfileCategory.id
+  let fictionalProfileCategoryID: number | string = fictionalProfileCategory.id
+
+  if (payload.db.defaultIDType === 'text') {
+    realProfileCategoryID = `"${realProfileCategory.id}"`
+    fictionalProfileCategoryID = `"${fictionalProfileCategory.id}"`
+  }
+
+  payload.logger.info(`— Seeding profiles...`)
+
+  profiles.forEach((profile) => {
+    payload.create({
+      collection: 'profiles',
+      data: JSON.parse(
+        JSON.stringify({ ...profile })
+          .replace(/"\{\{IMAGE\}\}"/g, String(profileImages.get(`${profile.slug}`)))
+          .replace(/"\{\{CATEGORY_REAL\}\}"/g, String(realProfileCategoryID))
+          .replace(/"\{\{CATEGORY_FICTIONAL\}\}"/g, String(fictionalProfileCategoryID)),
+      ),
+      req,
+    })
   })
 
   payload.logger.info('Seeded database successfully!')
