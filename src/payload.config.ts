@@ -28,7 +28,6 @@ import { Posts } from './payload/collections/Posts'
 import { ProfileCategories } from './payload/collections/ProfileCategories'
 import { Profiles } from './payload/collections/Profiles'
 import { Users } from './payload/collections/Users'
-import { seed } from './payload/endpoints/seed'
 import { Footer } from './payload/globals/Footer/Footer'
 import { Header } from './payload/globals/Header/Header'
 import { revalidateRedirects } from './payload/hooks/revalidateRedirects'
@@ -50,14 +49,6 @@ const generateURL: GenerateURL<Post | Page> = ({ doc }) => {
 
 export default buildConfig({
   admin: {
-    components: {
-      // The `BeforeLogin` component renders a message that you see while logging into your admin panel.
-      // Feel free to delete this at any time. Simply remove the line below and the import `BeforeLogin` statement on line 15.
-      beforeLogin: ['/payload/components/BeforeLogin'],
-      // The `BeforeDashboard` component renders the 'welcome' block that you see after logging into your admin panel.
-      // Feel free to delete this at any time. Simply remove the line below and the import `BeforeDashboard` statement on line 15.
-      beforeDashboard: ['/payload/components/BeforeDashboard'],
-    },
     importMap: {
       baseDir: path.resolve(dirname),
     },
@@ -123,15 +114,6 @@ export default buildConfig({
   collections: [Pages, Posts, Media, Categories, Users, ProfileCategories, Profiles],
   cors: [process.env.PAYLOAD_PUBLIC_SERVER_URL || ''].filter(Boolean),
   csrf: [process.env.PAYLOAD_PUBLIC_SERVER_URL || ''].filter(Boolean),
-  endpoints: [
-    // The seed endpoint is used to populate the database with some example data
-    // You should delete this endpoint before deploying your site to production
-    {
-      handler: seed,
-      method: 'get',
-      path: '/seed',
-    },
-  ],
   globals: [Header, Footer],
   plugins: [
     redirectsPlugin({
