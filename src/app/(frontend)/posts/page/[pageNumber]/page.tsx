@@ -41,7 +41,7 @@ export default async function Page({ params: { pageNumber = 2 } }) {
 
       <div className="container">
         {posts.totalPages > 1 && posts.page && (
-          <Pagination page={posts.page} totalPages={posts.totalPages} />
+          <Pagination collection='posts' page={posts.page} totalPages={posts.totalPages} />
         )}
       </div>
     </div>
