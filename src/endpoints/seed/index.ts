@@ -309,6 +309,13 @@ export const seed = async ({
           },
           {
             link: {
+              type: 'custom',
+              label: 'Profiles',
+              url: '/profiles',
+            },
+          },
+          {
+            link: {
               type: 'reference',
               label: 'Contact',
               reference: {
