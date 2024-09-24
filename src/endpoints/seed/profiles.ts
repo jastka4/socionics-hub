@@ -10,6 +10,16 @@ type ProfileSeed = Omit<
 
 export const profiles: ProfileSeed[] = [
   {
+    slug: 'abram-ioffe',
+    name: 'Abram Ioffe',
+    category: '{{CATEGORY_REAL}}',
+    SHS: {},
+    SCS: {
+      type: 'SEI',
+    },
+    profilePicture: '{{IMAGE}}',
+  },
+  {
     slug: 'albert-einstein',
     name: 'Albert Einstein',
     category: '{{CATEGORY_REAL}}',
@@ -34,12 +44,42 @@ export const profiles: ProfileSeed[] = [
     profilePicture: '{{IMAGE}}',
   },
   {
+    slug: 'aleksandr-kalyagin',
+    name: 'Aleksandr Kalyagin',
+    category: '{{CATEGORY_REAL}}',
+    SHS: {},
+    SCS: {
+      type: 'SEI',
+    },
+    profilePicture: '{{IMAGE}}',
+  },
+  {
+    slug: 'alexander-hamilton',
+    name: 'Alexander Hamilton',
+    category: '{{CATEGORY_REAL}}',
+    SHS: {},
+    SCS: {
+      type: 'SEI',
+    },
+    profilePicture: '{{IMAGE}}',
+  },
+  {
     slug: 'alexander-suvorov',
     name: 'Aleksander Suvorov',
     category: '{{CATEGORY_REAL}}',
     SHS: {},
     SCS: {
       type: 'ILE',
+    },
+    profilePicture: '{{IMAGE}}',
+  },
+  {
+    slug: 'alexandre-dumas',
+    name: 'Alexandre Dumas',
+    category: '{{CATEGORY_REAL}}',
+    SHS: {},
+    SCS: {
+      type: 'SEI',
     },
     profilePicture: '{{IMAGE}}',
   },
@@ -172,6 +212,16 @@ export const profiles: ProfileSeed[] = [
     profilePicture: '{{IMAGE}}',
   },
   {
+    slug: 'grigory-kotovsky',
+    name: 'Grigory Kotovsky',
+    category: '{{CATEGORY_REAL}}',
+    SHS: {},
+    SCS: {
+      type: 'SEI',
+    },
+    profilePicture: '{{IMAGE}}',
+  },
+  {
     slug: 'herve-bazin',
     name: 'Hervé Bazin',
     category: '{{CATEGORY_REAL}}',
@@ -202,6 +252,16 @@ export const profiles: ProfileSeed[] = [
     profilePicture: '{{IMAGE}}',
   },
   {
+    slug: 'ivan-aivazovsky',
+    name: 'Ivan Aivazovsky',
+    category: '{{CATEGORY_REAL}}',
+    SHS: {},
+    SCS: {
+      type: 'SEI',
+    },
+    profilePicture: '{{IMAGE}}',
+  },
+  {
     slug: 'janusz-korczak',
     name: 'Janusz Korczak',
     category: '{{CATEGORY_REAL}}',
@@ -218,6 +278,16 @@ export const profiles: ProfileSeed[] = [
     SHS: {},
     SCS: {
       type: 'ILE',
+    },
+    profilePicture: '{{IMAGE}}',
+  },
+  {
+    slug: 'leonid-bronevoy',
+    name: 'Leonid Bronevoy',
+    category: '{{CATEGORY_REAL}}',
+    SHS: {},
+    SCS: {
+      type: 'SEI',
     },
     profilePicture: '{{IMAGE}}',
   },
@@ -282,12 +352,42 @@ export const profiles: ProfileSeed[] = [
     profilePicture: '{{IMAGE}}',
   },
   {
+    slug: 'mikhail-sholokhov',
+    name: 'Mikhail Sholokhov',
+    category: '{{CATEGORY_REAL}}',
+    SHS: {},
+    SCS: {
+      type: 'SEI',
+    },
+    profilePicture: '{{IMAGE}}',
+  },
+  {
     slug: 'mireille-mathieu',
     name: 'Mireille Mathieu',
     category: '{{CATEGORY_REAL}}',
     SHS: {},
     SCS: {
       type: 'ILE',
+    },
+    profilePicture: '{{IMAGE}}',
+  },
+  {
+    slug: 'natalya-gundareva',
+    name: 'Natalya Gundareva',
+    category: '{{CATEGORY_REAL}}',
+    SHS: {},
+    SCS: {
+      type: 'SEI',
+    },
+    profilePicture: '{{IMAGE}}',
+  },
+  {
+    slug: 'nikita-khrushchev',
+    name: 'Nikita Khrushchev',
+    category: '{{CATEGORY_REAL}}',
+    SHS: {},
+    SCS: {
+      type: 'SEI',
     },
     profilePicture: '{{IMAGE}}',
   },
@@ -302,12 +402,52 @@ export const profiles: ProfileSeed[] = [
     profilePicture: '{{IMAGE}}',
   },
   {
+    slug: 'oleg-tabakov',
+    name: 'Oleg Tabakov',
+    category: '{{CATEGORY_REAL}}',
+    SHS: {},
+    SCS: {
+      type: 'SEI',
+    },
+    profilePicture: '{{IMAGE}}',
+  },
+  {
+    slug: 'peter-paul-rubens',
+    name: 'Peter Paul Rubens',
+    category: '{{CATEGORY_REAL}}',
+    SHS: {},
+    SCS: {
+      type: 'SEI',
+    },
+    profilePicture: '{{IMAGE}}',
+  },
+  {
     slug: 'peter-the-great',
     name: 'Peter the Great',
     category: '{{CATEGORY_REAL}}',
     SHS: {},
     SCS: {
       type: 'ILE',
+    },
+    profilePicture: '{{IMAGE}}',
+  },
+  {
+    slug: 'pierre-auguste-renoir',
+    name: 'Pierre-Auguste Renoir',
+    category: '{{CATEGORY_REAL}}',
+    SHS: {},
+    SCS: {
+      type: 'SEI',
+    },
+    profilePicture: '{{IMAGE}}',
+  },
+  {
+    slug: 'porthos',
+    name: 'Porthos',
+    category: '{{CATEGORY_FICTIONAL}}',
+    SHS: {},
+    SCS: {
+      type: 'SEI',
     },
     profilePicture: '{{IMAGE}}',
   },
@@ -328,6 +468,36 @@ export const profiles: ProfileSeed[] = [
     SHS: {},
     SCS: {
       type: 'ILE',
+    },
+    profilePicture: '{{IMAGE}}',
+  },
+  {
+    slug: 'yelena-koreneva',
+    name: 'Yelena Koreneva',
+    category: '{{CATEGORY_REAL}}',
+    SHS: {},
+    SCS: {
+      type: 'SEI',
+    },
+    profilePicture: '{{IMAGE}}',
+  },
+  {
+    slug: 'yevgeny-leonov',
+    name: 'Yevgeny Leonov',
+    category: '{{CATEGORY_REAL}}',
+    SHS: {},
+    SCS: {
+      type: 'SEI',
+    },
+    profilePicture: '{{IMAGE}}',
+  },
+  {
+    slug: 'yuri-nikitin',
+    name: 'Yuri Nikitin',
+    category: '{{CATEGORY_REAL}}',
+    SHS: {},
+    SCS: {
+      type: 'SEI',
     },
     profilePicture: '{{IMAGE}}',
   },
