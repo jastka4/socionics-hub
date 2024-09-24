@@ -80,7 +80,7 @@ export const profiles: ProfileSeed[] = [
   {
     slug: 'authors-crush',
     name: "Author's Crush",
-    category: '{{CATEGORY_REAL}}',
+    category: '{{CATEGORY_FICTIONAL}}',
     SHS: {
       type: 'EIE',
       subtype: ['H', 'D', 'N', 'C'],
