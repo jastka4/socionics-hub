@@ -86,6 +86,16 @@ export const profiles: Array<Partial<Profile>> = [
     profilePicture: '{{IMAGE}}',
   },
   {
+    slug: 'andrei-bitov',
+    name: 'Andrei Bitov',
+    category: '{{CATEGORY_REAL}}',
+    SHS: {},
+    SCS: {
+      type: 'ESE',
+    },
+    profilePicture: '{{IMAGE}}',
+  },
+  {
     slug: 'andrew-tate',
     name: 'Andrew Tate',
     category: '{{CATEGORY_REAL}}',
@@ -194,12 +204,32 @@ export const profiles: Array<Partial<Profile>> = [
     profilePicture: '{{IMAGE}}',
   },
   {
+    slug: 'george-washington',
+    name: 'George Washington',
+    category: '{{CATEGORY_REAL}}',
+    SHS: {},
+    SCS: {
+      type: 'ESE',
+    },
+    profilePicture: '{{IMAGE}}',
+  },
+  {
     slug: 'georgi-plekhanov',
     name: 'Georgi Plekhanov',
     category: '{{CATEGORY_REAL}}',
     SHS: {},
        SCS: {
       type: 'ILE',
+    },
+    profilePicture: '{{IMAGE}}',
+  },
+  {
+    slug: 'gerard-philipe',
+    name: 'Gérard Philipe',
+    category: '{{CATEGORY_REAL}}',
+    SHS: {},
+    SCS: {
+      type: 'ESE',
     },
     profilePicture: '{{IMAGE}}',
   },
@@ -264,6 +294,16 @@ export const profiles: Array<Partial<Profile>> = [
     profilePicture: '{{IMAGE}}',
   },
   {
+    slug: 'jules-verne',
+    name: 'Jules Verne',
+    category: '{{CATEGORY_REAL}}',
+    SHS: {},
+    SCS: {
+      type: 'ESE',
+    },
+    profilePicture: '{{IMAGE}}',
+  },
+  {
     slug: 'konstantin-tsiolkovsky',
     name: 'Konstantin Tsiolkovsky',
     category: '{{CATEGORY_REAL}}',
@@ -320,6 +360,26 @@ export const profiles: Array<Partial<Profile>> = [
     SHS: {},
        SCS: {
       type: 'ILE',
+    },
+    profilePicture: '{{IMAGE}}',
+  },
+  {
+    slug: 'mikhail-bakunin',
+    name: 'Mikhail Bakunin',
+    category: '{{CATEGORY_REAL}}',
+    SHS: {},
+    SCS: {
+      type: 'ESE',
+    },
+    profilePicture: '{{IMAGE}}',
+  },
+  {
+    slug: 'mikhail-kozakov',
+    name: 'Mikhail Kozakov',
+    category: '{{CATEGORY_REAL}}',
+    SHS: {},
+    SCS: {
+      type: 'ESE',
     },
     profilePicture: '{{IMAGE}}',
   },
@@ -444,12 +504,42 @@ export const profiles: Array<Partial<Profile>> = [
     profilePicture: '{{IMAGE}}',
   },
   {
+    slug: 'prosper-merimee',
+    name: 'Prosper Mérimée',
+    category: '{{CATEGORY_REAL}}',
+    SHS: {},
+    SCS: {
+      type: 'ESE',
+    },
+    profilePicture: '{{IMAGE}}',
+  },
+  {
     slug: 'sigmund-freud',
     name: 'Sigmund Freud',
     category: '{{CATEGORY_REAL}}',
     SHS: {},
        SCS: {
       type: 'ILE',
+    },
+    profilePicture: '{{IMAGE}}',
+  },
+  {
+    slug: 'valentin-gaft',
+    name: 'Valentin Gaft',
+    category: '{{CATEGORY_REAL}}',
+    SHS: {},
+    SCS: {
+      type: 'ESE',
+    },
+    profilePicture: '{{IMAGE}}',
+  },
+  {
+    slug: 'victor-hugo',
+    name: 'Victor Hugo',
+    category: '{{CATEGORY_REAL}}',
+    SHS: {},
+    SCS: {
+      type: 'ESE',
     },
     profilePicture: '{{IMAGE}}',
   },
