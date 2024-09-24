@@ -118,6 +118,8 @@ export default buildConfig({
     },
   }),
   db: mongooseAdapter({
+    // Don't use transactions, there seem to be some issues when seeding the database on production
+    transactionOptions: false,
     url: process.env.DATABASE_URI || '',
   }),
   collections: [Pages, Posts, Media, Categories, Users, ProfileCategories, Profiles],
