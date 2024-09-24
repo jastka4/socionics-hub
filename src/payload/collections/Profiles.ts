@@ -15,7 +15,7 @@ export const Profiles: CollectionConfig = {
   },
   admin: {
     useAsTitle: 'name',
-    group: 'typings',
+    group: 'Typings',
   },
   fields: [
     {

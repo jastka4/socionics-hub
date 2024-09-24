@@ -13,7 +13,7 @@ export const ProfileCategories: CollectionConfig = {
   },
   admin: {
     useAsTitle: 'title',
-    group: 'typings',
+    group: 'Typings',
   },
   fields: [
     {
