@@ -74,6 +74,16 @@ export const profiles: ProfileSeed[] = [
     profilePicture: '{{IMAGE}}',
   },
   {
+    slug: 'alexandra-kollontai',
+    name: 'Alexandra Kollontai',
+    category: '{{CATEGORY_REAL}}',
+    SHS: {},
+    SCS: {
+      type: 'SLE',
+    },
+    profilePicture: '{{IMAGE}}',
+  },
+  {
     slug: 'alexandre-dumas',
     name: 'Alexandre Dumas',
     category: '{{CATEGORY_REAL}}',
@@ -114,6 +124,16 @@ export const profiles: ProfileSeed[] = [
     },
     SCS: {
       type: 'IEE',
+    },
+    profilePicture: '{{IMAGE}}',
+  },
+  {
+    slug: 'anna-akhmatova',
+    name: 'Anna Akhmatova',
+    category: '{{CATEGORY_REAL}}',
+    SHS: {},
+    SCS: {
+      type: 'SLE',
     },
     profilePicture: '{{IMAGE}}',
   },
@@ -322,6 +342,16 @@ export const profiles: ProfileSeed[] = [
     profilePicture: '{{IMAGE}}',
   },
   {
+    slug: 'georgy-zhukov',
+    name: 'Georgy Zhukov',
+    category: '{{CATEGORY_REAL}}',
+    SHS: {},
+    SCS: {
+      type: 'SLE',
+    },
+    profilePicture: '{{IMAGE}}',
+  },
+  {
     slug: 'gerard-philipe',
     name: 'Gérard Philipe',
     category: '{{CATEGORY_REAL}}',
@@ -382,6 +412,16 @@ export const profiles: ProfileSeed[] = [
     profilePicture: '{{IMAGE}}',
   },
   {
+    slug: 'jane-fonda',
+    name: 'Jane Fonda',
+    category: '{{CATEGORY_REAL}}',
+    SHS: {},
+    SCS: {
+      type: 'SLE',
+    },
+    profilePicture: '{{IMAGE}}',
+  },
+  {
     slug: 'janusz-korczak',
     name: 'Janusz Korczak',
     category: '{{CATEGORY_REAL}}',
@@ -408,6 +448,16 @@ export const profiles: ProfileSeed[] = [
     SHS: {},
     SCS: {
       type: 'LII',
+    },
+    profilePicture: '{{IMAGE}}',
+  },
+  {
+    slug: 'kirill-lavrov',
+    name: 'Kirill Lavrov',
+    category: '{{CATEGORY_REAL}}',
+    SHS: {},
+    SCS: {
+      type: 'SLE',
     },
     profilePicture: '{{IMAGE}}',
   },
@@ -548,6 +598,16 @@ export const profiles: ProfileSeed[] = [
     SHS: {},
     SCS: {
       type: 'SEI',
+    },
+    profilePicture: '{{IMAGE}}',
+  },
+  {
+    slug: 'mikhail-ulyanov',
+    name: 'Mikhail Ulyanov',
+    category: '{{CATEGORY_REAL}}',
+    SHS: {},
+    SCS: {
+      type: 'SLE',
     },
     profilePicture: '{{IMAGE}}',
   },
@@ -702,6 +762,36 @@ export const profiles: ProfileSeed[] = [
     profilePicture: '{{IMAGE}}',
   },
   {
+    slug: 'richard-wagner',
+    name: 'Richard Wagner',
+    category: '{{CATEGORY_REAL}}',
+    SHS: {},
+    SCS: {
+      type: 'SLE',
+    },
+    profilePicture: '{{IMAGE}}',
+  },
+  {
+    slug: 'sergei-kirov',
+    name: 'Sergei Kirov',
+    category: '{{CATEGORY_REAL}}',
+    SHS: {},
+    SCS: {
+      type: 'SLE',
+    },
+    profilePicture: '{{IMAGE}}',
+  },
+  {
+    slug: 'sergei-korolev',
+    name: 'Sergei Korolev',
+    category: '{{CATEGORY_REAL}}',
+    SHS: {},
+    SCS: {
+      type: 'SLE',
+    },
+    profilePicture: '{{IMAGE}}',
+  },
+  {
     slug: 'sergei-rachmaninoff',
     name: 'Sergei Rachmaninoff',
     category: '{{CATEGORY_REAL}}',
@@ -748,6 +838,16 @@ export const profiles: ProfileSeed[] = [
     SHS: {},
     SCS: {
       type: 'ESE',
+    },
+    profilePicture: '{{IMAGE}}',
+  },
+  {
+    slug: 'vladimir-mayakovsky',
+    name: 'Vladimir Mayakovsky',
+    category: '{{CATEGORY_REAL}}',
+    SHS: {},
+    SCS: {
+      type: 'SLE',
     },
     profilePicture: '{{IMAGE}}',
   },
