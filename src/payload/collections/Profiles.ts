@@ -17,6 +17,7 @@ export const Profiles: CollectionConfig = {
     useAsTitle: 'name',
     group: 'Typings',
   },
+  defaultSort: 'name',
   fields: [
     {
       name: 'name',

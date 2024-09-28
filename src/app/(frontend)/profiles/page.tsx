@@ -15,7 +15,6 @@ export default async function Page() {
 
   const profiles = await payload.find({
     collection: 'profiles',
-    sort: 'name',
     depth: 1,
     limit: 12,
   })
