@@ -16,6 +16,7 @@ export const Profiles: CollectionConfig = {
   admin: {
     useAsTitle: 'name',
     group: 'Typings',
+    defaultColumns: ['name', 'category', 'SHS', 'SCS'],
   },
   defaultSort: 'name',
   fields: [
