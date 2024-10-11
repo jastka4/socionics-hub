@@ -432,6 +432,16 @@ export const profiles: ProfileSeed[] = [
     profilePicture: '{{IMAGE}}',
   },
   {
+    slug: 'jean-jacques-rousseau',
+    name: 'Jean-Jacques Rousseau',
+    category: '{{CATEGORY_REAL}}',
+    SHS: {},
+    SCS: {
+      type: 'IEI',
+    },
+    profilePicture: '{{IMAGE}}',
+  },
+  {
     slug: 'jules-verne',
     name: 'Jules Verne',
     category: '{{CATEGORY_REAL}}',
@@ -518,6 +528,16 @@ export const profiles: ProfileSeed[] = [
     SHS: {},
     SCS: {
       type: 'ILE',
+    },
+    profilePicture: '{{IMAGE}}',
+  },
+  {
+    slug: 'marcello-mastroianni',
+    name: 'Marcello Mastroianni',
+    category: '{{CATEGORY_REAL}}',
+    SHS: {},
+    SCS: {
+      type: 'IEI',
     },
     profilePicture: '{{IMAGE}}',
   },
@@ -802,6 +822,16 @@ export const profiles: ProfileSeed[] = [
     profilePicture: '{{IMAGE}}',
   },
   {
+    slug: 'sergei-yesenin',
+    name: 'Sergei Yesenin',
+    category: '{{CATEGORY_REAL}}',
+    SHS: {},
+    SCS: {
+      type: 'IEI',
+    },
+    profilePicture: '{{IMAGE}}',
+  },
+  {
     slug: 'sigmund-freud',
     name: 'Sigmund Freud',
     category: '{{CATEGORY_REAL}}',
@@ -818,6 +848,16 @@ export const profiles: ProfileSeed[] = [
     SHS: {},
     SCS: {
       type: 'LII',
+    },
+    profilePicture: '{{IMAGE}}',
+  },
+  {
+    slug: 'tiberius',
+    name: 'Tiberius',
+    category: '{{CATEGORY_REAL}}',
+    SHS: {},
+    SCS: {
+      type: 'IEI',
     },
     profilePicture: '{{IMAGE}}',
   },
@@ -878,6 +918,26 @@ export const profiles: ProfileSeed[] = [
     SHS: {},
     SCS: {
       type: 'SEI',
+    },
+    profilePicture: '{{IMAGE}}',
+  },
+  {
+    slug: 'yevgeny-matveyev',
+    name: 'Yevgeny Matveyev',
+    category: '{{CATEGORY_REAL}}',
+    SHS: {},
+    SCS: {
+      type: 'IEI',
+    },
+    profilePicture: '{{IMAGE}}',
+  },
+  {
+    slug: 'yuri-gagarin',
+    name: 'Yuri Gagarin',
+    category: '{{CATEGORY_REAL}}',
+    SHS: {},
+    SCS: {
+      type: 'IEI',
     },
     profilePicture: '{{IMAGE}}',
   },
