@@ -20,6 +20,16 @@ export const profiles: ProfileSeed[] = [
     profilePicture: '{{IMAGE}}',
   },
   {
+    slug: 'adolf-hitler',
+    name: 'Adolf Hitler',
+    category: '{{CATEGORY_REAL}}',
+    SHS: {},
+    SCS: {
+      type: 'EIE',
+    },
+    profilePicture: '{{IMAGE}}',
+  },
+  {
     slug: 'albert-einstein',
     name: 'Albert Einstein',
     category: '{{CATEGORY_REAL}}',
@@ -250,6 +260,16 @@ export const profiles: ProfileSeed[] = [
     profilePicture: '{{IMAGE}}',
   },
   {
+    slug: 'dolores-ibarruri',
+    name: 'Dolores Ibárruri',
+    category: '{{CATEGORY_REAL}}',
+    SHS: {},
+    SCS: {
+      type: 'EIE',
+    },
+    profilePicture: '{{IMAGE}}',
+  },
+  {
     slug: 'don-quixote',
     name: 'Don Quixote',
     category: '{{CATEGORY_FICTIONAL}}',
@@ -372,6 +392,16 @@ export const profiles: ProfileSeed[] = [
     profilePicture: '{{IMAGE}}',
   },
   {
+    slug: 'hamlet',
+    name: 'Hamlet',
+    category: '{{CATEGORY_FICTIONAL}}',
+    SHS: {},
+    SCS: {
+      type: 'EIE',
+    },
+    profilePicture: '{{IMAGE}}',
+  },
+  {
     slug: 'herve-bazin',
     name: 'Hervé Bazin',
     category: '{{CATEGORY_REAL}}',
@@ -442,6 +472,26 @@ export const profiles: ProfileSeed[] = [
     profilePicture: '{{IMAGE}}',
   },
   {
+    slug: 'jean-marais',
+    name: 'Jean Marais',
+    category: '{{CATEGORY_REAL}}',
+    SHS: {},
+    SCS: {
+      type: 'EIE',
+    },
+    profilePicture: '{{IMAGE}}',
+  },
+  {
+    slug: 'johann-wolfgang-von-goethe',
+    name: 'Johann Wolfgang von Goethe',
+    category: '{{CATEGORY_REAL}}',
+    SHS: {},
+    SCS: {
+      type: 'EIE',
+    },
+    profilePicture: '{{IMAGE}}',
+  },
+  {
     slug: 'jules-verne',
     name: 'Jules Verne',
     category: '{{CATEGORY_REAL}}',
@@ -488,6 +538,26 @@ export const profiles: ProfileSeed[] = [
     SHS: {},
     SCS: {
       type: 'LII',
+    },
+    profilePicture: '{{IMAGE}}',
+  },
+  {
+    slug: 'laurence-olivier',
+    name: 'Laurence Olivier',
+    category: '{{CATEGORY_REAL}}',
+    SHS: {},
+    SCS: {
+      type: 'EIE',
+    },
+    profilePicture: '{{IMAGE}}',
+  },
+  {
+    slug: 'leon-trotsky',
+    name: 'Leon Trotsky',
+    category: '{{CATEGORY_REAL}}',
+    SHS: {},
+    SCS: {
+      type: 'EIE',
     },
     profilePicture: '{{IMAGE}}',
   },
@@ -572,6 +642,16 @@ export const profiles: ProfileSeed[] = [
     profilePicture: '{{IMAGE}}',
   },
   {
+    slug: 'mikalojus-konstantinas-ciurlionis',
+    name: 'Mikalojus Konstantinas Čiurlionis',
+    category: '{{CATEGORY_REAL}}',
+    SHS: {},
+    SCS: {
+      type: 'EIE',
+    },
+    profilePicture: '{{IMAGE}}',
+  },
+  {
     slug: 'mikhail-bakunin',
     name: 'Mikhail Bakunin',
     category: '{{CATEGORY_REAL}}',
@@ -648,6 +728,16 @@ export const profiles: ProfileSeed[] = [
     SHS: {},
     SCS: {
       type: 'SEI',
+    },
+    profilePicture: '{{IMAGE}}',
+  },
+  {
+    slug: 'nero',
+    name: 'Nero',
+    category: '{{CATEGORY_REAL}}',
+    SHS: {},
+    SCS: {
+      type: 'EIE',
     },
     profilePicture: '{{IMAGE}}',
   },
@@ -782,12 +872,32 @@ export const profiles: ProfileSeed[] = [
     profilePicture: '{{IMAGE}}',
   },
   {
+    slug: 'raphael',
+    name: 'Raphael',
+    category: '{{CATEGORY_REAL}}',
+    SHS: {},
+    SCS: {
+      type: 'EIE',
+    },
+    profilePicture: '{{IMAGE}}',
+  },
+  {
     slug: 'richard-wagner',
     name: 'Richard Wagner',
     category: '{{CATEGORY_REAL}}',
     SHS: {},
     SCS: {
       type: 'SLE',
+    },
+    profilePicture: '{{IMAGE}}',
+  },
+  {
+    slug: 'sergei-bondarchuk',
+    name: 'Sergei Bondarchuk',
+    category: '{{CATEGORY_REAL}}',
+    SHS: {},
+    SCS: {
+      type: 'EIE',
     },
     profilePicture: '{{IMAGE}}',
   },
@@ -828,6 +938,16 @@ export const profiles: ProfileSeed[] = [
     SHS: {},
     SCS: {
       type: 'IEI',
+    },
+    profilePicture: '{{IMAGE}}',
+  },
+  {
+    slug: 'sergey-ivanovich-vavilov',
+    name: 'Sergey Ivanovich Vavilov',
+    category: '{{CATEGORY_REAL}}',
+    SHS: {},
+    SCS: {
+      type: 'EIE',
     },
     profilePicture: '{{IMAGE}}',
   },
@@ -888,6 +1008,16 @@ export const profiles: ProfileSeed[] = [
     SHS: {},
     SCS: {
       type: 'SLE',
+    },
+    profilePicture: '{{IMAGE}}',
+  },
+  {
+    slug: 'william-shakespeare',
+    name: 'William Shakespeare',
+    category: '{{CATEGORY_REAL}}',
+    SHS: {},
+    SCS: {
+      type: 'EIE',
     },
     profilePicture: '{{IMAGE}}',
   },
