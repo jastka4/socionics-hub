@@ -3,24 +3,29 @@ import type { Metadata } from 'next/types'
 import { CollectionArchive } from '@/components/CollectionArchive'
 import { PageRange } from '@/components/PageRange'
 import { Pagination } from '@/components/Pagination'
+import { ProfileCard } from '@/components/ProfileCard'
 import configPromise from '@payload-config'
-import { getPayloadHMR } from '@payloadcms/next/utilities'
+import { getPayload } from 'payload'
 import React from 'react'
+import PageClient from './page.client'
 
 export const dynamic = 'force-static'
 export const revalidate = 600
 
 export default async function Page() {
-  const payload = await getPayloadHMR({ config: configPromise })
+  const payload = await getPayload({ config: configPromise })
 
   const profiles = await payload.find({
     collection: 'profiles',
     depth: 1,
     limit: 12,
+    overrideAccess: false,
+    sort: 'name',
   })
 
   return (
     <div className="pt-24 pb-24">
+      <PageClient />
       <div className="container mb-16">
         <div className="prose dark:prose-invert max-w-none">
           <h1>Profiles</h1>
@@ -36,8 +41,13 @@ export default async function Page() {
         />
       </div>
 
-
-      <CollectionArchive profiles={profiles.docs} />
+      <CollectionArchive
+        docs={profiles.docs}
+        className="col-span-2"
+        renderCard={(profile) => (
+          <ProfileCard className="h-full" doc={profile} relationTo="profiles" />
+        )}
+      />
 
       <div className="container">
         {profiles.totalPages > 1 && profiles.page && (
@@ -50,6 +60,6 @@ export default async function Page() {
 
 export function generateMetadata(): Metadata {
   return {
-    title: `Socionics Hub Profiles Page`,
+    title: `Socionics Hub Profiles`,
   }
 }

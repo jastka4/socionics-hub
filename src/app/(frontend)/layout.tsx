@@ -1,22 +1,27 @@
 import type { Metadata } from 'next'
 
-import { cn } from '@/utilities/cn'
+import { cn } from '@/utilities/ui'
 import { GeistMono } from 'geist/font/mono'
 import { GeistSans } from 'geist/font/sans'
 import React from 'react'
+
+import { AdminBar } from '@/components/AdminBar'
+import { Footer } from '@/Footer/Component'
+import { Header } from '@/Header/Component'
+import { Providers } from '@/providers'
+import { InitTheme } from '@/providers/Theme/InitTheme'
+import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
+import { draftMode } from 'next/headers'
+
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 
-import { AdminBar } from '../components/AdminBar'
-import { Footer } from '../components/Footer'
-import { Header } from '../components/Header'
-import { LivePreviewListener } from '../components/LivePreviewListener'
-import { Providers } from '../providers'
-import { InitTheme } from '../providers/Theme/InitTheme'
-import { mergeOpenGraph } from '../utilities/mergeOpenGraph'
 import './globals.css'
+import { getServerSideURL } from '@/utilities/getURL'
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const { isEnabled } = await draftMode()
+
   return (
     <html className={cn(GeistSans.variable, GeistMono.variable)} lang="en" suppressHydrationWarning>
       <head>
@@ -26,8 +31,11 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       </head>
       <body>
         <Providers>
-          <AdminBar />
-          <LivePreviewListener />
+          <AdminBar
+            adminBarProps={{
+              preview: isEnabled,
+            }}
+          />
 
           <Header />
           {children}
@@ -41,7 +49,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 }
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SERVER_URL || 'https://payloadcms.com'),
+  metadataBase: new URL(getServerSideURL()),
   openGraph: mergeOpenGraph(),
   twitter: {
     card: 'summary_large_image',
