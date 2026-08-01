@@ -742,16 +742,6 @@ export const profiles: ProfileSeed[] = [
     profilePicture: '{{IMAGE}}',
   },
   {
-    slug: 'niccolo-paganini',
-    name: 'Niccolò Paganini',
-    category: '{{CATEGORY_REAL}}',
-    SHS: {},
-    SCS: {
-      type: 'LII',
-    },
-    profilePicture: '{{IMAGE}}',
-  },
-  {
     slug: 'nikita-khrushchev',
     name: 'Nikita Khrushchev',
     category: '{{CATEGORY_REAL}}',
