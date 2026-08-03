@@ -25,6 +25,14 @@ const nextConfig: NextConfig = {
     ],
     qualities: [100],
     remotePatterns: [
+      {
+        hostname: 'cdn.discordapp.com',
+        protocol: 'https',
+      },
+      {
+        hostname: 'cdn.prod.website-files.com',
+        protocol: 'https',
+      },
       ...[NEXT_PUBLIC_SERVER_URL /* 'https://example.com' */].map((item) => {
         const url = new URL(item)
 
