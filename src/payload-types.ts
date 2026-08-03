@@ -205,7 +205,7 @@ export interface Page {
       | null;
     media?: (number | null) | Media;
   };
-  layout: (CallToActionBlock | ContentBlock | MediaBlock | ArchiveBlock | FormBlock)[];
+  layout: (CallToActionBlock | ContentBlock | MediaBlock | ArchiveBlock | FormBlock | DiscordBlock)[];
   meta?: {
     title?: string | null;
     /**
@@ -778,6 +778,38 @@ export interface Form {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "DiscordBlock".
+ */
+export interface DiscordBlock {
+  introContent?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  discordCards: {
+    description?: string | null;
+    /**
+     * Server widget has to be enabled in the Discord Server Settings.
+     */
+    serverId: string;
+    id?: string | null;
+  }[];
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'discord';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "profiles".
  */
 export interface Profile {
@@ -1185,6 +1217,7 @@ export interface PagesSelect<T extends boolean = true> {
         mediaBlock?: T | MediaBlockSelect<T>;
         archive?: T | ArchiveBlockSelect<T>;
         formBlock?: T | FormBlockSelect<T>;
+        discord?: T | DiscordBlockSelect<T>;
       };
   meta?:
     | T
@@ -1281,6 +1314,22 @@ export interface FormBlockSelect<T extends boolean = true> {
   form?: T;
   enableIntro?: T;
   introContent?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "DiscordBlock_select".
+ */
+export interface DiscordBlockSelect<T extends boolean = true> {
+  introContent?: T;
+  discordCards?:
+    | T
+    | {
+        description?: T;
+        serverId?: T;
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }
