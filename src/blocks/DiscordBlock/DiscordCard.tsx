@@ -41,17 +41,20 @@ export const DiscordCard = async ({ description, serverId }: DiscordCardProps) =
   const onlineCount = widget?.presence_count ?? members.length
 
   return (
-    <article className="mx-auto flex h-full w-full max-w-md flex-col overflow-hidden rounded-lg border border-border bg-card">
-      <div className="flex items-center justify-between bg-[#5865F2] px-5 py-4 text-white">
+    <article className="mx-auto flex h-full max-w-md flex-col overflow-hidden rounded-lg border bg-card">
+      <div className="bg-discord flex items-center justify-between px-5 py-4 text-white">
         <Image alt="Discord" height={20} src={discordLogoUrl} width={130} />
-        <span className="flex items-center gap-2 text-xs font-medium text-white">
-          <span className="size-2 rounded-lg bg-green-400" />
+        <span className="flex items-center gap-2 text-xs font-medium">
+          <span className="bg-discord-online size-2 rounded-lg" />
           {onlineCount} online
         </span>
       </div>
 
       <div className="flex flex-1 flex-col p-5 sm:p-6">
-        <h2 className="mt-2 text-2xl font-semibold tracking-tight">{widget?.name}</h2>
+        {widget?.name && (
+          <h2 className="mt-2 text-2xl font-semibold tracking-tight">{widget.name}</h2>
+        )}
+
         {description && <p className="mt-2 text-sm text-muted-foreground">{description}</p>}
 
         <div className="mt-6">
@@ -66,7 +69,6 @@ export const DiscordCard = async ({ description, serverId }: DiscordCardProps) =
                   className="size-10 rounded-full border-2 border-card bg-muted object-cover"
                   height={40}
                   key={member.id}
-                  loading="lazy"
                   src={member.avatar_url}
                   width={40}
                 />
@@ -78,7 +80,7 @@ export const DiscordCard = async ({ description, serverId }: DiscordCardProps) =
               )}
             </div>
           ) : (
-            <div className="mt-2 rounded-lg border border-dashed border-border bg-muted/40 px-4 py-4 text-center text-sm text-muted-foreground">
+            <div className="mt-2 rounded-lg border border-dashed bg-muted/40 px-4 py-4 text-center text-sm text-muted-foreground">
               {widget ? 'Nobody is showing as online right now.' : 'Discord status is unavailable.'}
             </div>
           )}
@@ -87,7 +89,7 @@ export const DiscordCard = async ({ description, serverId }: DiscordCardProps) =
         {widget?.instant_invite && (
           <div className="mt-auto pt-5">
             <a
-              className="flex h-11 w-full items-center justify-center gap-2 rounded-lg bg-[#5865f2] px-4 text-sm font-semibold text-white transition-colors hover:bg-[#4752c4] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#5865f2]/30"
+              className="bg-discord hover:bg-discord-hover focus-visible:ring-discord/30 flex h-11 w-full items-center justify-center gap-2 rounded-lg px-4 text-sm font-semibold text-white transition-colors focus-visible:outline-none focus-visible:ring-4"
               href={widget.instant_invite}
               rel="noopener noreferrer"
               target="_blank"

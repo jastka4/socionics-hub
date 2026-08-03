@@ -123,6 +123,10 @@
   --success: oklch(78% 0.08 200deg);
   --warning: oklch(89% 0.1 75deg);
   --error: oklch(75% 0.15 25deg);
+
+  --discord: oklch(57.74% 0.209 273.85deg);
+  --discord-hover: oklch(49.67% 0.176 273.91deg);
+  --discord-online: oklch(79.2% 0.209 151.711deg);
   --type-foreground: oklch(14.5% 0 0deg);
   --type-shs: oklch(83.3% 0.1642 83.42);
   --type-scs: oklch(67.66% 0.1481 238.14);
@@ -206,6 +210,10 @@
   --color-success: var(--success);
   --color-warning: var(--warning);
   --color-error: var(--error);
+
+  --color-discord: var(--discord);
+  --color-discord-hover: var(--discord-hover);
+  --color-discord-online: var(--discord-online);
   --color-type-foreground: var(--type-foreground);
   --color-type-shs: var(--type-shs);
   --color-type-scs: var(--type-scs);
