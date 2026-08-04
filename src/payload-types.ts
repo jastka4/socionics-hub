@@ -898,6 +898,20 @@ export interface Profile {
 export interface ProfileCategory {
   id: number;
   title: string;
+  /**
+   * When enabled, the slug will auto-generate from the title field on save and autosave.
+   */
+  generateSlug?: boolean | null;
+  slug: string;
+  parent?: (number | null) | ProfileCategory;
+  breadcrumbs?:
+    | {
+        doc?: (number | null) | ProfileCategory;
+        url?: string | null;
+        label?: string | null;
+        id?: string | null;
+      }[]
+    | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -1533,6 +1547,17 @@ export interface ProfilesSelect<T extends boolean = true> {
  */
 export interface ProfileCategoriesSelect<T extends boolean = true> {
   title?: T;
+  generateSlug?: T;
+  slug?: T;
+  parent?: T;
+  breadcrumbs?:
+    | T
+    | {
+        doc?: T;
+        url?: T;
+        label?: T;
+        id?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
 }

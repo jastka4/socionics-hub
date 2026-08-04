@@ -2,6 +2,7 @@ import type { CollectionConfig } from 'payload'
 
 import { anyone } from '../access/anyone'
 import { authenticated } from '../access/authenticated'
+import { slugField } from 'payload'
 
 export const ProfileCategories: CollectionConfig = {
   slug: 'profile-categories',
@@ -21,5 +22,8 @@ export const ProfileCategories: CollectionConfig = {
       type: 'text',
       required: true,
     },
+    slugField({
+      position: undefined,
+    }),
   ],
 }
