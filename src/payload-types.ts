@@ -572,18 +572,132 @@ export interface ArchiveBlock {
     [k: string]: unknown;
   } | null;
   populateBy?: ('collection' | 'selection') | null;
-  relationTo?: 'posts' | null;
+  relationTo?: ('posts' | 'profiles') | null;
   categories?: (number | Category)[] | null;
+  profileCategories?: (number | ProfileCategory)[] | null;
   limit?: number | null;
   selectedDocs?:
-    | {
-        relationTo: 'posts';
-        value: number | Post;
-      }[]
+    | (
+        | {
+            relationTo: 'posts';
+            value: number | Post;
+          }
+        | {
+            relationTo: 'profiles';
+            value: number | Profile;
+          }
+      )[]
     | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'archive';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "profile-categories".
+ */
+export interface ProfileCategory {
+  id: number;
+  title: string;
+  /**
+   * When enabled, the slug will auto-generate from the title field on save and autosave.
+   */
+  generateSlug?: boolean | null;
+  slug: string;
+  parent?: (number | null) | ProfileCategory;
+  breadcrumbs?:
+    | {
+        doc?: (number | null) | ProfileCategory;
+        url?: string | null;
+        label?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "profiles".
+ */
+export interface Profile {
+  id: number;
+  name: string;
+  category: number | ProfileCategory;
+  profilePicture?: (number | null) | Media;
+  SHS?: {
+    type?:
+      | (
+          | 'ILE'
+          | 'LIE'
+          | 'IEE'
+          | 'EIE'
+          | 'SLE'
+          | 'LSE'
+          | 'SEE'
+          | 'ESE'
+          | 'ILI'
+          | 'LII'
+          | 'IEI'
+          | 'EII'
+          | 'SLI'
+          | 'LSI'
+          | 'SEI'
+          | 'ESI'
+        )
+      | null;
+    subtype?: ('D' | 'C' | 'N' | 'H')[] | null;
+    accentuation?: ('F' | 'S' | 'P' | 'L' | 'E' | 'R' | 'I' | 'T')[] | null;
+    shift?:
+      | (
+          | 'ILE'
+          | 'LIE'
+          | 'IEE'
+          | 'EIE'
+          | 'SLE'
+          | 'LSE'
+          | 'SEE'
+          | 'ESE'
+          | 'ILI'
+          | 'LII'
+          | 'IEI'
+          | 'EII'
+          | 'SLI'
+          | 'LSI'
+          | 'SEI'
+          | 'ESI'
+        )
+      | null;
+  };
+  SCS?: {
+    type?:
+      | (
+          | 'ILE'
+          | 'LIE'
+          | 'IEE'
+          | 'EIE'
+          | 'SLE'
+          | 'LSE'
+          | 'SEE'
+          | 'ESE'
+          | 'ILI'
+          | 'LII'
+          | 'IEI'
+          | 'EII'
+          | 'SLI'
+          | 'LSI'
+          | 'SEI'
+          | 'ESI'
+        )
+      | null;
+  };
+  /**
+   * When enabled, the slug will auto-generate from the title field on save and autosave.
+   */
+  generateSlug?: boolean | null;
+  slug: string;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -807,113 +921,6 @@ export interface DiscordBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'discord';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "profiles".
- */
-export interface Profile {
-  id: number;
-  name: string;
-  category: number | ProfileCategory;
-  profilePicture?: (number | null) | Media;
-  SHS?: {
-    type?:
-      | (
-          | 'ILE'
-          | 'LIE'
-          | 'IEE'
-          | 'EIE'
-          | 'SLE'
-          | 'LSE'
-          | 'SEE'
-          | 'ESE'
-          | 'ILI'
-          | 'LII'
-          | 'IEI'
-          | 'EII'
-          | 'SLI'
-          | 'LSI'
-          | 'SEI'
-          | 'ESI'
-        )
-      | null;
-    subtype?: ('D' | 'C' | 'N' | 'H')[] | null;
-    accentuation?: ('F' | 'S' | 'P' | 'L' | 'E' | 'R' | 'I' | 'T')[] | null;
-    shift?:
-      | (
-          | 'ILE'
-          | 'LIE'
-          | 'IEE'
-          | 'EIE'
-          | 'SLE'
-          | 'LSE'
-          | 'SEE'
-          | 'ESE'
-          | 'ILI'
-          | 'LII'
-          | 'IEI'
-          | 'EII'
-          | 'SLI'
-          | 'LSI'
-          | 'SEI'
-          | 'ESI'
-        )
-      | null;
-  };
-  SCS?: {
-    type?:
-      | (
-          | 'ILE'
-          | 'LIE'
-          | 'IEE'
-          | 'EIE'
-          | 'SLE'
-          | 'LSE'
-          | 'SEE'
-          | 'ESE'
-          | 'ILI'
-          | 'LII'
-          | 'IEI'
-          | 'EII'
-          | 'SLI'
-          | 'LSI'
-          | 'SEI'
-          | 'ESI'
-        )
-      | null;
-  };
-  /**
-   * When enabled, the slug will auto-generate from the title field on save and autosave.
-   */
-  generateSlug?: boolean | null;
-  slug: string;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "profile-categories".
- */
-export interface ProfileCategory {
-  id: number;
-  title: string;
-  /**
-   * When enabled, the slug will auto-generate from the title field on save and autosave.
-   */
-  generateSlug?: boolean | null;
-  slug: string;
-  parent?: (number | null) | ProfileCategory;
-  breadcrumbs?:
-    | {
-        doc?: (number | null) | ProfileCategory;
-        url?: string | null;
-        label?: string | null;
-        id?: string | null;
-      }[]
-    | null;
-  updatedAt: string;
-  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1315,6 +1322,7 @@ export interface ArchiveBlockSelect<T extends boolean = true> {
   populateBy?: T;
   relationTo?: T;
   categories?: T;
+  profileCategories?: T;
   limit?: T;
   selectedDocs?: T;
   id?: T;
